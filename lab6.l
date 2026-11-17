@@ -1,0 +1,31 @@
+/*6.	Build a text scanner in Lex that categorizes code items into basic compiler definitions: Keywords (if, else, while, int), Operators, Separators, and Identifiers.
+
+*/
+%{
+#include <stdio.h>
+%}
+
+KEYWORD     if|else|while|int|float|char|return|void|for|do
+OPERATOR    \+|\-|\*|\/|%|=|==|!=|<|>|<=|>=|&&|\|\||!
+SEPARATOR   ;|,|\(|\)|\{|\}|\[|\]
+IDENTIFIER  [a-zA-Z_][a-zA-Z0-9_]*
+
+%%
+
+{KEYWORD}       { printf("KEYWORD:    %s\n", yytext); }
+{OPERATOR}      { printf("OPERATOR:   %s\n", yytext); }
+{SEPARATOR}     { printf("SEPARATOR:  %s\n", yytext); }
+{IDENTIFIER}    { printf("IDENTIFIER: %s\n", yytext); }
+[0-9]+          { printf("LITERAL:    %s\n", yytext); }
+[ \t\n]+        ;
+.               { printf("UNKNOWN:    %s\n", yytext); }
+
+%%
+
+int yywrap() { return 1; }
+
+int main() {
+    printf("Enter code snippet (Ctrl+D to exit):\n");
+    yylex();
+    return 0;
+}
