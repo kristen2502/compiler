@@ -1,5 +1,11 @@
 /* 3.	Write a Lex program to detect and count (or strip out) single-line (//) and multi-line (/* ... *  /) 
 comments from a C file code snippet.
+
+vim q3.l
+flex -o q3_lex.c q3.l
+gcc q3_lex.c -o q3
+./q3
+   
 */
 %{
 #include <stdio.h>
