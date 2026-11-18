@@ -1,4 +1,10 @@
 /*6.	Build a text scanner in Lex that categorizes code items into basic compiler definitions: Keywords (if, else, while, int), Operators, Separators, and Identifiers.
+lex -o q6lex.c q6.l
+gcc q6lex.c -o q6
+ ./q6
+
+
+ lex -o q6lex.c q6.l && gcc q6lex.c -o q6
 
 */
 %{
