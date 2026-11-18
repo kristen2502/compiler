@@ -1,6 +1,12 @@
-  /*2.	Write a Lex program to verify whether 
+/*2.	Write a Lex program to verify whether 
 a given input string qualifies as a valid C programming 
 identifier (starts with a letter/underscore, followed by letters, underscores, or digits). 
+ vim q2.l
+flex -o q2lex.c q2.l
+gcc q2lex.c -o q2
+./q2
+is this right
+
 */
 
 %{
